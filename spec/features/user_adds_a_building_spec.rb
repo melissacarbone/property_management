@@ -28,6 +28,15 @@ feature 'User adds a building', %Q{
     expect(page).to have_content('Add a new building:')
   end
 
-  scenario 'with invalid attributes'
+  scenario 'with invalid attributes' do
+    visit 'buildings/new'
+
+    click_on 'Create Building'
+
+    expect(page).to have_content("Please add a street address.")
+    expect(page).to have_content("Please add a city.")
+    expect(page).to have_content("Please add a state.")
+    expect(page).to have_content("Please add a zip code.")
+  end
 
 end

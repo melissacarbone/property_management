@@ -38,6 +38,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'capybara'
   gem 'launchy'
+  gem 'quiet_assets'
 end
 
 group :test do
