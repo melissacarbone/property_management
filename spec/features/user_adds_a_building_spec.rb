@@ -19,7 +19,7 @@ feature 'User adds a building', %Q{
 
     fill_in 'Street Address', with: '33 Harrison Ave'
     fill_in 'City',           with: 'Boston'
-    fill_in 'State',          with: 'MA'
+    select 'MA',              from: 'State'
     fill_in 'ZIP',            with: '02111'
     fill_in 'Description',    with: 'Close to dumplings and bubble tea'
     click_on 'Create Building'
@@ -35,7 +35,6 @@ feature 'User adds a building', %Q{
 
     expect(page).to have_content("Street address can't be blank")
     expect(page).to have_content("City can't be blank")
-    expect(page).to have_content("State can't be blank")
     expect(page).to have_content("Zip can't be blank")
   end
 
