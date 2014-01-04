@@ -1,0 +1,28 @@
+<h1>Add a new owner:</h1>
+
+<%= notice %>
+
+<%= form_for @owner do |f| %>
+  <% if @owner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@owner.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @owner.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :first_name, 'First Name' %>
+  <%= f.text_field :first_name %><br>
+
+  <%= f.label :last_name, 'Last Name' %>
+  <%= f.text_field :last_name %><br>
+
+  <%= f.label :email, 'Email' %>
+  <%= f.text_field :email %><br>
+
+  <%= f.submit %>
+<% end %>
