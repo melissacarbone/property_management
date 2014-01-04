@@ -12,6 +12,6 @@ describe Building do
   it { should_not have_valid(:state).when(nil, "", 12, 'New York') }
 
   it { should have_valid(:zip).when('12345', '02111') }
-  it { should_not have_valid(:zip).when(nil, "") }
+  it { should_not have_valid(:zip).when(nil, "", '1234567') }
 
 end

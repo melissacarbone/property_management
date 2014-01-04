@@ -6,6 +6,7 @@ class Building < ActiveRecord::Base
   validates_presence_of :zip
 
   validates_length_of :state, is: 2
+  validates_length_of :zip, is: 5
   validates :state, format: { with: /\D/ }
 
 end
