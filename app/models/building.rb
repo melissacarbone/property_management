@@ -1,9 +1,9 @@
 class Building < ActiveRecord::Base
 
-  validates_presence_of :street_address, message: 'Please add a street address.'
-  validates_presence_of :city,           message: 'Please add a city.'
-  validates_presence_of :state,          message: 'Please add a state.'
-  validates_presence_of :zip,            message: 'Please add a zip code.'
+  validates_presence_of :street_address
+  validates_presence_of :city
+  validates_presence_of :state
+  validates_presence_of :zip
 
   validates_length_of :state, is: 2
   validates :state, format: { with: /\D/ }

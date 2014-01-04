@@ -33,10 +33,10 @@ feature 'User adds a building', %Q{
 
     click_on 'Create Building'
 
-    expect(page).to have_content("Please add a street address.")
-    expect(page).to have_content("Please add a city.")
-    expect(page).to have_content("Please add a state.")
-    expect(page).to have_content("Please add a zip code.")
+    expect(page).to have_content("Street address can't be blank")
+    expect(page).to have_content("City can't be blank")
+    expect(page).to have_content("State can't be blank")
+    expect(page).to have_content("Zip can't be blank")
   end
 
 end
