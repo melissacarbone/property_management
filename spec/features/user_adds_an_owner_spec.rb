@@ -24,6 +24,14 @@ feature 'User adds an owner', %Q{
     expect(Owner.all.count).to eq(1)
   end
 
-  scenario 'with invalid attributes'
+  scenario 'with invalid attributes' do
+    visit 'owners/new'
+    click_on 'Create Owner'
+
+    expect(page).to have_content("First name is invalid")
+    expect(page).to have_content("Last name is invalid")
+    expect(page).to have_content("Email is invalid")
+    expect(Owner.all.count).to eq(0)
+  end
 end
 
