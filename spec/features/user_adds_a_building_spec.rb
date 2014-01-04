@@ -25,7 +25,7 @@ feature 'User adds a building', %Q{
     click_on 'Create Building'
 
     expect(page).to have_content('Building was successfully created!')
-    expect(page).to have_content('Add a new building:')
+    expect(Building.all.count).to eq(1)
   end
 
   scenario 'with invalid attributes' do
