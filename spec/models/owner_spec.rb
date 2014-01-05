@@ -1,6 +1,13 @@
 require 'spec_helper'
 
 describe Owner do
+
+  let(:owner) { FactoryGirl.build(:owner) }
+
+  it "is valid when it has all required and valid attributes" do
+    expect(owner).to be_valid
+  end
+
   it { should have_many(:buildings).dependent(:nullify) }
 
   it { should have_valid(:first_name).when('John', 'Sue') }

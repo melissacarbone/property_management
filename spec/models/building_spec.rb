@@ -1,6 +1,13 @@
 require 'spec_helper'
 
 describe Building do
+
+  let(:building) { FactoryGirl.build(:building) }
+
+  it "is valid when it has all required and valid attributes" do
+    expect(building).to be_valid
+  end
+
   it { should belong_to(:owner) }
 
   it { should have_valid(:street_address).when("33 Harrison Ave") }
@@ -14,5 +21,7 @@ describe Building do
 
   it { should have_valid(:zip).when('12345', '02111') }
   it { should_not have_valid(:zip).when(nil, "", '1234567') }
+
+
 
 end
