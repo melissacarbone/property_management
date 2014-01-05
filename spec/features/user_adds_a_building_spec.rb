@@ -38,4 +38,21 @@ feature 'User adds a building', %Q{
     expect(page).to have_content("Zip can't be blank")
   end
 
+  scenario 'optionally specifying an owner' do
+    owner = FactoryGirl.create(:owner)
+
+    visit 'buildings/new'
+
+    fill_in 'Street Address', with: '33 Harrison Ave'
+    fill_in 'City',           with: 'Boston'
+    select 'MA',              from: 'State'
+    fill_in 'ZIP',            with: '02111'
+    fill_in 'Description',    with: 'Close to dumplings and bubble tea'
+
+    select 'Smith',           from: 'Owner'
+    click_on 'Create Building'
+
+    expect(owner.buildings.count).to eq(1)
+  end
+
 end

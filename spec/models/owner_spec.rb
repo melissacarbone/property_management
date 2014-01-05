@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Owner do
+  it { should have_many(:buildings).dependent(:nullify) }
+
   it { should have_valid(:first_name).when('John', 'Sue') }
   it { should_not have_valid(:first_name).when('', nil, 123) }
 

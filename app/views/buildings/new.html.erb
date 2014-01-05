@@ -30,5 +30,8 @@
   <%= f.label :description %>
   <%= f.text_field :description %><br>
 
+  <%= f.label :owner_id %>
+  <%= f.collection_select(:owner_id, Owner.all, :id, :last_name, {include_blank: true} ) %><br>
+
   <%= f.submit %>
 <% end %>
