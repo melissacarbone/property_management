@@ -37,6 +37,16 @@ feature 'User adds a building', %Q{
     expect(page).to have_content("City can't be blank")
     expect(page).to have_content("Zip can't be blank")
   end
+end
+
+feature 'User associates building with owner', %Q{
+  As a real estate associate
+  I want to correlate an owner with buildings
+  So that I can refer back to pertinent information
+  } do
+
+    # Acceptance Criteria:
+    # When recording a building, I want to optionally associate the building with its rightful owner.
 
   scenario 'optionally specifying an owner' do
     owner = FactoryGirl.create(:owner)
@@ -54,5 +64,4 @@ feature 'User adds a building', %Q{
 
     expect(owner.buildings.count).to eq(1)
   end
-
 end
